@@ -34,7 +34,7 @@ This returns a hardcoded mock result.
 ## 🚀 Setup Instructions
 
 ```bash
-git clone <your-repo-url>
+git clone <https://github.com/SrijaKompelli/court-data-dashboard.git>
 cd court_data_dashboard
 pip install -r requirements.txt
 python app.py
