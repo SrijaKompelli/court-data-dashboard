@@ -43,7 +43,14 @@ def search():
     if data:
         return render_template('result.html', data=data)
     else:
-        return "❌ Case not found or site unavailable. <br><a href='/'>Back to Search</a>"
+        return render_template('index.html', error="❌ Case not found or unavailable.")
+
+@app.route('/history')
+def history():
+    with engine.connect() as conn:
+        result = conn.execute(queries.select().order_by(queries.c.id.desc()))
+        rows = result.fetchall()
+    return render_template('history.html', history=rows)
 
 if __name__ == '__main__':
     app.run(debug=True)
